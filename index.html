@@ -3,26 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/src/cdn/cdn.min.js" defer></script>
+    <script src="https://unpkg.com/alpinejs" defer></script>
+
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
     <title></title>
 </head>
-<body>
-    <div class="container">
-
-        <nav class="sidebar">
-            <button id="fab">Create</button>
-        </nav>
-
-        <div class="container">
-            <h1>Home Page</h1>
-            <button id="theme" type="button" data-theme="dark">Switch Theme</button>
-
-            <div id="newTaskMenu" href="/">
-                <input type="text" id="newTask" placeholder="Enter a new task">
-            </div>
-        </div>
+<body x-data="{ currentPage: 'home', open: true}">
+  
+    <div class="sidebar" x-show="open">
     </div>
 
+    <div class="top-bar" x-show="open">
+    </div>
+
+
+    <div class="main-content">
+
+        <template x-if=" currentPage === 'home' ">
+            <h1>Home page </h1>
+
+            <button>theme</button>
+
+        </template>
+
+
+
+
+    </div>
+
+    </div>
 </body>
 </html>

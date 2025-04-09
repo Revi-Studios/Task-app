@@ -5,18 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="guidlines.css">
     <title>Project Guidlines</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <script type="importmap">
+      {
+        "imports": {
+          "@material/web/": "https://esm.run/@material/web/"
+        }
+      }
+    </script>
+    <script type="module">
+      import '@material/web/all.js';
+      import {styles as typescaleStyles} from '@material/web/typography/md-typescale-styles.js';
+      document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
+    </script>
+
+    <style>
+        hr{
+            border-bottom: 1px solid black;            
+        }
+    </style>
+    
+    <script src="/src/cdn/cdn.min.js" defer></script>
 </head>
 <body>
-    <div class="container">
+    <div class="container" x-data="{ m-open: true }">
 
-        <div class="button">
+        <h1 style="font-family: Roboto">Welcome to Guidlines</h1>
+        <hr>
+        <md-filled-tonal-button @click="m-open = !m-open">Toggle material u</md-filled-tonal-button>
+        <md-filled-tonal-button @click="c-open = !c-open">Toggle custom ui</md-filled-tonal-button>
+
+        <div class="button" x-show="true">
             <button class="extendedFab">Extended Fab</button>
             <button class="fab">Fab</button>
             <button class="minFab">Minimized Fab</button>
+            <input class="input" type="text" placeholder="input">
+
         </div>
 
-        <div class="input">
-            <input type="text" placeholder="input">
+        <div class="material-u" x-show="true">
+            <md-outlined-button >outlined</md-outlined-button>
+            <md-outlined-button ></md-outlined-button>
+            <md-outlined-button >Reset</md-outlined-button>
+            <md-outlined-button >Reset</md-outlined-button>
+
+            <span x-show="open">test</span>
         </div>
         
         <div class="text">
